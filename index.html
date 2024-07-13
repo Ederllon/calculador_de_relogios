@@ -1,1 +1,74 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #select{
+            width:50%;
+            height:10%;
+            margin-top:1%;
+        }
+        .area{
+            margin:10px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Selecione a opção abaixo para a conversão: </h1>
+    
+    <select id="select" onchange="func()">
+        <option disabled selected value="">Nenhum</option>
+        <option value="pm">Pacote Masculino</option>
+        <option value="m">Peças Masculinas</option>
+        <option value="f">Peças Femininas</option>
+    </select>
+
+    <div class="area">
+        <input id="input1" type="number" placeholder="Pacotes Concluídos" oninput="calculate()"  /> | <input  id="input2" type="number" placeholder="Valor Da Peça" value="0.20" oninput="calculate()"/>
+    </div>
+
+    <div class="respost">
+
+    </div>
+
+</body>
+<script>
+    const area = document.querySelector('.area');
+    const respost_ = document.querySelector('.respost');
+
+
+
+    function func(){
+    const select = document.getElementById('select');
+    var x = select.options[select.selectedIndex].value;
+    if(x === 'pm'){
+        area.innerHTML = "444";
+        
+    }
+    else if(x === 'm'){
+        area.innerHTML = "666";
+
+    }
+    else if(x === 'f'){
+        area.innerHTML = "777";
+    }
+    else{
+        area.innerHTML = 'nenhuma area foi selecionada';
+        console.log('houve um problema na seleção!')
+        
+};
+
+    
+
+}
+function calculate(){
+        const input_value1 = document.getElementById('input1').value;
+        const input_value2 = document.getElementById('input2').value;
+        respost_.innerHTML = (input_value1*input_value2).toFixed(2);   
+    }
+    </script>
+</html>
