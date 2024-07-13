@@ -14,6 +14,18 @@
         .area{
             margin:10px 0 0 0;
         }
+  .respost{
+    margin-top:10px;
+    border:solid 1px;
+    width:100%;
+    height:30px;
+  }
+  *{
+    background:#333;
+    color:#fff;
+    border-color:#fff;
+    
+  }
     </style>
 </head>
 <body>
@@ -28,12 +40,12 @@
     </select>
 
     <div class="area">
-        <input id="input1" type="number" placeholder="Pacotes Concluídos" oninput="calculate()"  /> | <input  id="input2" type="number" placeholder="Valor Da Peça" value="0.20" oninput="calculate()"/>
+              
     </div>
 
-    <div class="respost">
-
-    </div>
+    <h1 class="respost">
+      0,00 R$
+    </h1>
 
 </body>
 <script>
@@ -46,19 +58,19 @@
     const select = document.getElementById('select');
     var x = select.options[select.selectedIndex].value;
     if(x === 'pm'){
-        area.innerHTML = "444";
+        area.innerHTML = '<input id="input1" type="number" placeholder="Pacotes Concluídos" oninput="calculate()"  /> | <input  id="input2" type="number" placeholder="Valor Da Peça" value="0.20" oninput="calculate()"/>';
         
     }
     else if(x === 'm'){
-        area.innerHTML = "666";
+        area.innerHTML = '<input id="input1" type="number" placeholder="Peças Concluídas" oninput="calculateP()"  /> | <input  id="input2" type="number" placeholder="Valor Da Peça" value="0.20" oninput="calculate()"/>';
 
     }
     else if(x === 'f'){
-        area.innerHTML = "777";
+        area.innerHTML = '<input id="input1" type="number" placeholder="Peças Concluídas" oninput="calculateP()"  /> | <input  id="input2" type="number" placeholder="Valor Da Peça" value="0.20" oninput="calculate()"/>';
     }
     else{
         area.innerHTML = 'nenhuma area foi selecionada';
-        console.log('houve um problema na seleção!')
+        console.log('houve um problema na seleção!');
         
 };
 
@@ -68,7 +80,15 @@
 function calculate(){
         const input_value1 = document.getElementById('input1').value;
         const input_value2 = document.getElementById('input2').value;
-        respost_.innerHTML = (input_value1*input_value2).toFixed(2);   
+        respost_.innerHTML = ((input_value1*input_value2)*12).toFixed(2) + " R$";   
     }
+
+function calculateP(){
+        const input_value1 = document.getElementById('input1').value;
+        const input_value2 = document.getElementById('input2').value;
+        respost_.innerHTML = (input_value1*input_value2).toFixed(2) + " R$";   
+    }
+
+
     </script>
 </html>
